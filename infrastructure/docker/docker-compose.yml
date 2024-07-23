@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+      - "${ZOOKEEPER_PORT}:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    networks:
+      - kafka-suits-network
+
+  kafka:
+    image: wurstmeister/kafka:2.13-2.7.0
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - "${KAFKA_PORT_OUTSIDE}:9092"
+      - "${KAFKA_PORT_INSIDE_INTERNAL_DOCKER}:29092"
+      - "9999:9999"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:${KAFKA_PORT_INSIDE},OUTSIDE://host.docker.internal:${KAFKA_PORT_OUTSIDE},DOCKER://host.docker.internal:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:${KAFKA_PROTOCOL_MAP},OUTSIDE:${KAFKA_PROTOCOL_MAP},DOCKER:${KAFKA_PROTOCOL_MAP}
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:${KAFKA_PORT_INSIDE},OUTSIDE://0.0.0.0:${KAFKA_PORT_OUTSIDE},DOCKER://0.0.0.0:${KAFKA_PORT_INSIDE_INTERNAL_DOCKER}
+      KAFKA_INTER_BROKER_LISTENER_NAME: ${KAFKA_LISTENER_NAME}
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "${KAFKA_TOPIC}:1:1"
+      KAFKA_BROKER_ID: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    depends_on:
+      - zookeeper
+    networks:
+      - kafka-suits-network
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions.sh", "--bootstrap-server", "localhost:9092"]
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      timeout: 30s
+
+  app:
+    build:
+      context: ../.. # Path to project root
+      dockerfile: infrastructure/docker/Dockerfile.node
+    volumes:
+      - ../../:/app # Path to project root
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    env_file:
+      - ../../.env
+    depends_on:
+      - kafka
+    networks:
+      - kafka-suits-network
+
+  producer:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - kafka
+    networks:
+      - kafka-suits-network
+    entrypoint: /bin/sh -c "echo 'Esperando 15 segundos antes de enviar el mensaje...' && sleep 15 && echo 'Enviando mensaje de prueba...' && echo '${PRODUCER_MESSAGE}' | kafka-console-producer --broker-list kafka:${KAFKA_PORT_OUTSIDE} --topic ${KAFKA_TOPIC}"
+
+networks:
+  kafka-suits-network:
+    driver: bridge

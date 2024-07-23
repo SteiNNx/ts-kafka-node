@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:dev": "ts-node src/index.ts",
+    "lint": "eslint src/**/*.ts",
+    "dev": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "echo 'Running pre-build tasks...'",
+    "postbuild": "echo 'Running post-build tasks...'"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.11",
+    "dotenv": "^16.4.5",
+    "kafkajs": "^2.2.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3",
+    "zod": "^3.23.8"
+  }
+}

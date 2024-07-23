@@ -1,0 +1,64 @@
+# Env
+.env
+
+# Node.js dependencies
+node_modules/
+
+# Compiled files
+.dist/
+dist/
+*.log
+
+# Dependency directories
+npm-debug.log*
+
+# IDE files
+.idea/
+
+# Package files
+*.tar.gz
+*.zip
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# AWS SAM local files
+.aws-sam/
+
+# Coverage reports
+coverage/
+
+# Functional tests
+tests-funcionales/
+
+# Ignore all files in the AWS credentials directory (replace 'aws-credentials' with your specific directory name)
+aws-credentials/*
+
+# Ignore encrypted secrets files
+*.enc
+
+# Ignore OS and IDE generated files
+*.sublime-project
+*.sublime-workspace
+*.project
+*.classpath
+*.settings/
+.settings/
+
+# Ignore personal customization files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore any local customizations for config files
+.editorconfig
+
+# Ignore eslint cache
+.eslintcache
+
+# Ignore .git folder from submodules
+**/.git
+
+# Ignore any locally configured `.eslintignore` files
+.eslintignore
