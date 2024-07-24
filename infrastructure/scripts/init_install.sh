@@ -2,7 +2,7 @@
 # Autor: Jorge Reyes
 
 # Incluir funciones de utilidad
-source scripts/utilities/terminal_utils.sh
+source infrastructure/scripts/no_run/terminal_utils.sh
 
 # Función para validar que npm está instalado y su versión
 validate_npm() {
@@ -37,38 +37,25 @@ validate_npm() {
 
 # Función para instalar dependencias con npm
 install_dependencies() {
-    warning "Instalando dependencias..."
+    log "Instalando dependencias..."
     breakline
     npm install
     if [ $? -ne 0 ]; then
         critical_error "Error al instalar dependencias."
     fi
     success "Dependencias instaladas exitosamente."
+    info "Compilando ts->js"
+    npm run build || {
+        critical_error "Error al compilar"
+    }
     breakline
-}
-
-# Función para iniciar la aplicación con npm
-start_application() {
-    warning "Iniciando la aplicación..."
-    breakline
-    npm start
-    if [ $? -ne 0 ]; then
-        critical_error "Error al iniciar la aplicación."
-    else
-        success "Aplicación iniciada exitosamente."
-    fi
-}
-
-# Función para ejecutar ambos pasos: instalar dependencias e iniciar la aplicación
-install_and_start() {
-    install_dependencies
-    start_application
+    success "Compilado exitosamente."
 }
 
 # Función principal
 main() {
     validate_npm
-    install_and_start
+    install_dependencies
 }
 
 # Llamada a la función principal con los argumentos de línea de comandos

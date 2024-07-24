@@ -4,18 +4,6 @@
 # Incluir funciones de utilidad
 source infrastructure/scripts/no_run/terminal_utils.sh
 
-# Función para cargar variables de entorno desde el archivo .env
-source_env_vars() {
-    local env_file="$1"
-    if [ -f "$env_file" ]; then
-        export $(grep -v '^#' "$env_file" | xargs)
-        success "Archivo de variables de entorno encontrado"
-        breakline
-    else
-        critical_error "Archivo de variables de entorno no encontrado: $env_file"
-    fi
-}
-
 # Inicializar y levantar los servicios de Docker
 init_suit_local_up() {
     print_current_directory
