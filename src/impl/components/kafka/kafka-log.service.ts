@@ -35,13 +35,7 @@ export class KafkaServiceLog implements OnModuleInit, OnModuleDestroy {
   }
 
   private async connectProducer() {
-    try {
-      console.log('***********************');
-      console.log('***********************');
-      console.log(this.producer);
-      console.log('***********************');
-      console.log('***********************');
-      
+    try {      
       await this.producer.connect();
       console.log('Producer trx-log connected successfully');
     } catch (error) {
