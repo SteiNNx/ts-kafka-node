@@ -14,7 +14,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_DOCKER_INTERNAL:PLAINTEXT,LISTENER_DOCKER_EXTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_CREATE_TOPICS: topic-be-dlake-ingesta-desa-compraaqui-pospagos
+      KAFKA_CREATE_TOPICS: 'topic-be-dlake-ingesta-desa-compraaqui-pospagos:3:1'
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     ports:

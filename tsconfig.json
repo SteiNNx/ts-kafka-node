@@ -1,27 +1,18 @@
 {
-    "compilerOptions": {
-      "target": "es6",                          // Establece la versión de ECMAScript a la que se compilará el código.
-      "module": "commonjs",                     // Especifica el sistema de módulos, común para Node.js.
-      "outDir": "./dist",                       // Directorio donde se colocará el código compilado.
-      "rootDir": "./src",                       // Directorio raíz de los archivos fuente.
-      "strict": true,                           // Habilita todas las verificaciones de tipo estricto.
-      //"esModuleInterop": true,                  // Permite la interoperabilidad entre módulos ES y CommonJS.
-      //"skipLibCheck": true,                     // Omite la verificación de tipos de archivos de declaración (`.d.ts`).
-      //"forceConsistentCasingInFileNames": true, // Asegura el uso consistente del caso en los nombres de archivo.
-      //"noImplicitAny": true,                    // Falla si hay una expresión o declaración con un tipo `any` implícito.
-      //"noUnusedLocals": true,                   // Falla si hay variables locales no usadas.
-      //"noUnusedParameters": true,               // Falla si hay parámetros no usados en funciones.
-      //"noImplicitReturns": true,                // Falla si no todas las ramas de una función retornan un valor.
-      //"moduleResolution": "node",               // Especifica cómo se resuelven los módulos (compatible con Node.js).
-      //"resolveJsonModule": true,                // Permite la importación de archivos JSON.
-      //"isolatedModules": true                   // Asegura que cada archivo puede ser tratado como un módulo independiente.
-    },
-    "include": [
-      "src/**/*.ts"  // Incluye todos los archivos TypeScript en el directorio `src`.
-    ],
-    "exclude": [
-      "node_modules",  // Excluye el directorio `node_modules`.
-      "**/*.spec.ts"   // Excluye archivos de prueba (si es necesario).
-    ]
-  }
-  
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.dto.ts"],
+  "exclude": ["node_modules", "dist"]
+}

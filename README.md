@@ -65,3 +65,5 @@ Si tu proyecto requiere un entorno Kafka local para pruebas o desarrollo, puedes
    - Expondrá las interfaces necesarias para interactuar con Kafka a través de `http://localhost:8085/`.
 
    **Nota:** Asegúrate de que Docker y Docker Compose estén instalados y en funcionamiento antes de ejecutar este script.
+
+   ![Ejemplo de la aplicación al levantarse](docs/ts-kafka-node.png)
