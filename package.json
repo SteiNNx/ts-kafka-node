@@ -1,9 +1,15 @@
 {
+  "name": "ts-kafka-node",
+  "version": "1.0.0",
+  "description": "A Node.js project using TypeScript and Kafka.",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "start:dev": "ts-node src/index.ts",
-    "lint": "eslint src/**/*.ts",
     "dev": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "echo 'Running pre-build tasks...'",
