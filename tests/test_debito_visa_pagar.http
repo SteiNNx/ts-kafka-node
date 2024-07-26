@@ -1,0 +1,96 @@
+### Pago Debito Visa
+POST http://localhost:3000/kafka/send
+Content-Type: application/json
+
+{
+    "UTCTimeFormat": "2024-07-24:23:27:48.117",
+    "additionalInfo": "\u0026 0000700364! B200158 7FF900008000000000009DEF709EA997FD72000000002810000000000000200003F915215224072400A00D9F20000706021203A0200000000000000000000000000000000000000000000000000000! B400020 071510013F000015080 ! B300080 CF000W104940E040C80000000000000022008C3F00000007A0000000031010000000000000000000! C400012 000000020233! S400020 0100079F6E0420700000! P700002 D ",
+    "attendant": "0",
+    "currencyCode": "152",
+    "datosComercio": {
+        "MCC": "5499",
+        "ciudadComercio": "Valdivia",
+        "clientAppOrg": "Registro venta masiva",
+        "comunaComercio": "Valdivia",
+        "dv": "1",
+        "idComercio": "876065401676",
+        "paisComercio": "Chile",
+        "rut": "87606540"
+    },
+    "datosPago": {
+        "cuotas": 0,
+        "iva": 408,
+        "monto": 2810,
+        "monto_s_prop": 2555,
+        "neto": 2147,
+        "propina": 255,
+        "tipoComprobante": "Boleta afecta",
+        "tipoCuota": "0",
+        "totalExento": 0,
+        "vuelto": 0
+    },
+    "datosSucursal": {
+        "comunaSucursal": "Valdivia",
+        "direccionSucursal": "Independencia   455",
+        "idSucursal": "a3Z8L000000HJPNUA4",
+        "idSucursalOP": "876065400705",
+        "nombreSucursal": "pruebavmasiva47@yopmail.com",
+        "paisSucursal": "Chile",
+        "regionSucursal": "Los Rios"
+    },
+    "datosTarjeta": {
+        "bin": "451368",
+        "abreviatura": "VI",
+        "marca": "VISA",
+        "cardEntryMode": "071",
+        "cardSeqNumb": "01",
+        "tipo": "D",
+        "conditionCode": "00",
+        "fourDigits": "4001",
+        "invoiceData": "55555"
+    },
+    "idPago": "32408cd0-8340-4ec4-8c36-9a08257066a5",
+    "idTerminal": "n005cs23",
+    "infoAdicional": {
+        "canal": "RED_MOVIL",
+        "card_entry": "CTLS",
+        "portador": "ENTEL",
+        "serial_number": "N860W104940",
+        "sim_id": "89560100001257725568",
+        "version_app": "3.0.3.dev",
+        "bins": {
+            "date_file": "12-01-2023",
+            "date_update": "12-01-2023",
+            "record_count": 1530,
+            "version": 4
+        },
+        "emv_aid": {
+            "date_file": "01-01-2000",
+            "date_update": "01-01-2000",
+            "version": 0
+        },
+        "emv_capk": {
+            "date_file": "01-01-2000",
+            "date_update": "01-01-2000",
+            "version": 0
+        },
+        "errors": {
+            "date_file": "15-02-2023",
+            "date_update": "15-02-2023",
+            "version": 1
+        },
+        "propinaActiva": true
+    },
+    "localDate": "0724",
+    "localTime": "192748",
+    "localTimeFormat": "2024-07-24:19:27:48.104",
+    "millisecDate": "1721863668117",
+    "ocAlianza": "NA",
+    "rrn": "376597442929",
+    "secureFields": {
+        "pinBlock": "74A34C1A3C33B103",
+        "pinblockKsn": "FFFFFF98282142000254",
+        "track2": "6E5BDE7A979F5D0222792A2F3B7ADE105079BCDC5B7ECAF34DCD2539244EDDB3402C130C46B24089",
+        "track2ksn": "FFFFFF98282142000253"
+    }
+}

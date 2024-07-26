@@ -8,6 +8,7 @@ source infrastructure/scripts/no_run/terminal_utils.sh
 init_suit_local_up() {
     print_current_directory
     source_env_vars ".env"
+    docker-compose -f ./infrastructure/docker/docker-compose.yml down --volumes all --remove-orphans
     docker-compose -f ./infrastructure/docker/docker-compose.yml up --build || {
         critical_error "Problemas al iniciar docker-compose.yml"
     }

@@ -1,0 +1,92 @@
+{
+    "UTCTimeFormat": "2024-07-24:23:29:07.550",
+    "additionalInfo": "\u0026 0000700390! B200158 7FF9000080000004800104271894901771B7000000028110000000000000198002FA1521522407240057C8094600180110A04001220400000000000000000000FF0000000000000000000000000000! B400020 0715100042030015080 ! B300080 CF000W104940E06008000000000000002200024203000007A0000000041010000000000000000000! C400012 000000020233! S400046 0100205A0854874220935324119F6E0701520000303000! P700002 C ",
+    "attendant": "0",
+    "currencyCode": "152",
+    "datosComercio": {
+        "MCC": "5499",
+        "ciudadComercio": "Valdivia",
+        "clientAppOrg": "Registro venta masiva",
+        "comunaComercio": "Valdivia",
+        "dv": "1",
+        "idComercio": "876065401676",
+        "paisComercio": "Chile",
+        "rut": "87606540"
+    },
+    "datosPago": {
+        "cuotas": 1,
+        "iva": 4080,
+        "monto": 28110,
+        "monto_s_prop": 25555,
+        "neto": 21475,
+        "propina": 2555,
+        "tipoComprobante": "Boleta afecta",
+        "tipoCuota": "0",
+        "totalExento": 0,
+        "vuelto": 0
+    },
+    "datosSucursal": {
+        "comunaSucursal": "Valdivia",
+        "direccionSucursal": "Independencia   455",
+        "idSucursal": "a3Z8L000000HJPNUA4",
+        "idSucursalOP": "876065400705",
+        "nombreSucursal": "pruebavmasiva47@yopmail.com",
+        "paisSucursal": "Chile",
+        "regionSucursal": "Los Rios"
+    },
+    "datosTarjeta": {
+        "bin": "548742",
+        "abreviatura": "MC",
+        "marca": "MASTERCARD",
+        "cardEntryMode": "071",
+        "cardSeqNumb": "00",
+        "tipo": "C",
+        "conditionCode": "00",
+        "fourDigits": "2411",
+        "invoiceData": "55555"
+    },
+    "idPago": "83d97681-8788-43cc-8203-1e02e02b6ac3",
+    "idTerminal": "n005cs23",
+    "infoAdicional": {
+        "canal": "RED_MOVIL",
+        "card_entry": "CTLS",
+        "portador": "ENTEL",
+        "serial_number": "N860W104940",
+        "sim_id": "89560100001257725568",
+        "version_app": "3.0.3.dev",
+        "bins": {
+            "date_file": "12-01-2023",
+            "date_update": "12-01-2023",
+            "record_count": 1530,
+            "version": 4
+        },
+        "emv_aid": {
+            "date_file": "01-01-2000",
+            "date_update": "01-01-2000",
+            "version": 0
+        },
+        "emv_capk": {
+            "date_file": "01-01-2000",
+            "date_update": "01-01-2000",
+            "version": 0
+        },
+        "errors": {
+            "date_file": "15-02-2023",
+            "date_update": "15-02-2023",
+            "version": 1
+        },
+        "propinaActiva": true
+    },
+    "localDate": "0724",
+    "localTime": "192907",
+    "localTimeFormat": "2024-07-24:19:29:07.545",
+    "millisecDate": "1721863747550",
+    "ocAlianza": "NA",
+    "rrn": "314746771929",
+    "secureFields": {
+        "pinBlock": "F19C37F98241D7ED",
+        "pinblockKsn": "FFFFFF98282142000256",
+        "track2": "845B11067EA470AE57E22F732604D6D430B9F26492A86AB8AC4300B98D1092E1EA74F6552BCC4096",
+        "track2ksn": "FFFFFF98282142000255"
+    }
+}
